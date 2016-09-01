@@ -6,7 +6,7 @@ package module2.hometask;
 public class Task1 {
 
     public static void main(String[] args) {
-        int[] values = {2147483646, -20, -5, -4, -5, -4, 0,0,0,2147483647};
+        int[] values = {2147483646, -20, -5, -4, -5, -4, 0,0,0,0};
         System.out.println("Sum is " + sum(values));
         System.out.println("Min is " + min(values));
         System.out.println("Max is " + max(values));
@@ -14,8 +14,8 @@ public class Task1 {
         System.out.println("Multiplication is " + multiplication(values) );
         if(values[values.length - 1] != 0)
             System.out.println("modulus of first and last element is " + modulus(values) );
-        else
-            System.out.println("modulus:Division by zero");
+        //else
+            //System.out.println("modulus:Division by zero");
         System.out.println("Second largest is " + secondLargest(values) );
     }
 
@@ -108,8 +108,10 @@ public class Task1 {
     public static int modulus(int array[]){
         if( array[array.length - 1] != 0 )
             return array[0] % array[array.length - 1];
-        else
+        else {
+            System.out.println("modulus:Division by zero");
             return 2147483647;//integer max value
+        }
     }
     public static double modulus(double array[]){
         return array[0] % array[array.length - 1];
