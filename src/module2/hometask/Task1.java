@@ -5,7 +5,7 @@ package module2.hometask;
  */
 public class Task1 {
     public static void main(String[] args) {
-        int[] values = {-20, -20, -5, -4, -5, -4, -7, -10, -10, 10};
+        int[] values = {-20, -20, -5, -4, -5, -4, -7, -10, 10, 10};
         System.out.println("Sum is " + sum(values));
         System.out.println("Min is " + min(values));
         System.out.println("Max is " + max(values));
@@ -106,29 +106,30 @@ public class Task1 {
     public static double modulus(double array[]){
         return array[0] % array[array.length - 1];
     }
-    public static int secondLargest(int array[]){
-        // check if array have more than 1 element
-        if(array.length == 1)
-            return array[0];
-        //search for max index
-        int maxIndex = 0;
-        for(int i = 0; i < array.length; i++)
-            if( array[maxIndex] < array[i])
-                maxIndex = i;
-
-        //swap last and max elements
-        if(maxIndex != (array.length-1) ) {
-            int k = array[maxIndex];
-            array[maxIndex] = array[array.length - 1];
-            array[array.length - 1] = k;
+    public static void sort( int array[] ) {
+        boolean swap = true;
+        int buffer = 0;
+        while (swap) {
+        swap = false;
+            for(int i = 0;  i < array.length - 1;  i++) {
+                if ( array[i] < array[i+1] ) {
+                    buffer = array[i];
+                    array[i] = array[i+1];
+                    array[i+1] = buffer;
+                    swap = true;
+                    }
+                }
+            }
         }
-
-        //search for largest element in array without last element
-        int secondLargest = array[0];
-        for(int i = 1; i < ( array.length - 1); i++)
-            if( secondLargest < array[i])
-                secondLargest = array[i];
-        return secondLargest;
+    public static int secondLargest(int array[]){
+        sort(array);
+        int i;
+        for(i = 1;  i < array.length;  i++) {
+            if(array[i] != array [i-1]){
+                break;
+            }
+        }
+        return array[i];
     }
     public static double secondLargest(double array[]){
         //search for max index
