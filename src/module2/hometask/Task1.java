@@ -4,8 +4,9 @@ package module2.hometask;
  * Created by Mykhailo on 8/29/2016.
  */
 public class Task1 {
+
     public static void main(String[] args) {
-        int[] values = {0, -20, -5, -4, -5, -4, 0,0,0,0};
+        int[] values = {2147483646, -20, -5, -4, -5, -4, 0,0,0,2147483647};
         System.out.println("Sum is " + sum(values));
         System.out.println("Min is " + min(values));
         System.out.println("Max is " + max(values));
@@ -105,7 +106,10 @@ public class Task1 {
         return multiplication;
     }
     public static int modulus(int array[]){
-        return array[0] % array[array.length - 1];
+        if( array[array.length - 1] != 0 )
+            return array[0] % array[array.length - 1];
+        else
+            return 2147483647;//integer max value
     }
     public static double modulus(double array[]){
         return array[0] % array[array.length - 1];
