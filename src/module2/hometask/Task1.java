@@ -110,11 +110,16 @@ public class Task1 {
             return array[0] % array[array.length - 1];
         else {
             System.out.println("modulus:Division by zero");
-            return 2147483647;//integer max value
+            return 2147483647;//max integer  value
         }
     }
     public static double modulus(double array[]){
-        return array[0] % array[array.length - 1];
+        if( array[array.length - 1] != 0 )
+            return array[0] % array[array.length - 1];
+        else {
+            System.out.println("modulus:Division by zero");
+            return 1.7976931348623157E308;// max double value
+        }
     }
     //descending sort
     public static void sort( int array[] ) {
