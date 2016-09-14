@@ -1,6 +1,7 @@
 package module3.hometask.task3_3;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 /**
  * Created by Mykhailo on 9/1/2016.

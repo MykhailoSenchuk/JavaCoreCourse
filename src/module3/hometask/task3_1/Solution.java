@@ -11,5 +11,6 @@ public class Solution{
         bird.walk();
         bird.fly();
         bird.sing();
+        bird.who();
     }
 }
