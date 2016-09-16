@@ -6,8 +6,6 @@ package module3.hometask.task3_2;
 public class Adder extends Arithmetic {
 
     public boolean check(Integer a, Integer b) {
-        if(a >= b)
-            return true;
-        return false;
+        return a >= b;
     }
 }
