@@ -9,10 +9,7 @@ public class Bird extends Animal {
     }
 
     void sing(){
-        super.sing();
-
-    }
-    void who(){
+        System.out.println("I am singing");
         System.out.println("I am Bird");
     }
 }
