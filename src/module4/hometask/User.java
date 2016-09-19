@@ -37,9 +37,10 @@ public class User{
     public String getName() {
         return name;
     }
-    /*
-    public Bank getBank() {
-        return bank;
+
+    @Override
+    public String toString(){
+        return name + " balance amount: " + balance;
     }
-    */
+
 }

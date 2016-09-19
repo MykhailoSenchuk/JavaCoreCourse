@@ -54,19 +54,19 @@ public class ChinaBank extends Bank{
     @Override
     // commission - 3% if USD and up to 1000, 5% if USD and more than 1000
     // 10% if EUR and up to 1000 and 11% if EUR and more than 1000
-    public double getCommission(int sum) {
+    public int getCommission(int sum) {
         switch(getCurrency()){
             case EUR: {
                 if (sum <= 1000)
-                    return sum * 0.1;
+                    return 1;
                 else
-                    return sum * 0.11;
+                    return 11;
             }
             case USD:{
                 if (sum <= 1000)
-                    return sum * 0.03;
+                    return 3;
                 else
-                    return sum * 0.05;
+                    return 5;
             }
         }
         return 0;

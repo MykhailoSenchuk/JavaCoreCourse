@@ -7,8 +7,10 @@ public class BankSystemImpl implements BankSystem {
 
     @Override
     public void withdrawOfUser(User user, int amount) {
-        if (user.bank.getLimitOfWithdrawal() >= amount && user.getBalance() >= amount + user.bank.getCommission(amount) && amount > 0 ){
-            user.setBalance( user.getBalance() - amount - user.bank.getCommission(amount) );
+
+        double commissionAmount = amount * user.bank.getCommission(amount)/100;
+        if (user.bank.getLimitOfWithdrawal() >= amount + commissionAmount && user.getBalance() >= amount + commissionAmount && amount > 0 ){
+            user.setBalance( user.getBalance() - amount - commissionAmount );
         }
         else
             System.out.println("incorrect operation or over bank limit");

@@ -55,19 +55,19 @@ public class USBank extends Bank {
     @Override
     // commission - 5% if USD and up to 1000, 7% if USD and more than 1000
     // 6% if EUR and up to 1000 and 8% if EUR and more than 1000
-    public double getCommission(int sum) {
+    public int getCommission(int sum) {
         switch(getCurrency()){
             case EUR: {
                 if (sum <= 1000)
-                    return sum * 0.06;
+                    return 6;
                 else
-                    return sum * 0.08;
+                    return 8;
             }
             case USD:{
                 if (sum <= 1000)
-                    return sum * 0.05;
+                    return 5;
                 else
-                    return sum * 0.07;
+                    return 7;
             }
         }
         return 0;

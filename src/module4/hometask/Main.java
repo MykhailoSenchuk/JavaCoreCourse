@@ -37,7 +37,7 @@ public class Main {
         BankSystemImpl bankSystemImpl= new BankSystemImpl();
 
         //vasya
-        operations(vasya, 100, 1000, 1000000, petya, bankSystemImpl);
+        operations(vasya, 100, 1000, 100, petya, bankSystemImpl);
 
         //misha
         operations(misha, 100, 1000, 100, oleg, bankSystemImpl);
@@ -53,6 +53,7 @@ public class Main {
 
         //nazar
         operations(nazar, 100, 1000, 100, vasya, bankSystemImpl);
+        System.out.println(nazar.toString());
 
 
     }
