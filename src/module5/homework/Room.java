@@ -33,13 +33,13 @@ public class Room {
             return true;
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
+        if ( getClass() != obj.getClass() )
             return false;
-        if (price != obj.getPrice())
+        if ( price != obj.getPrice() )
             return false;
-        if (persons != obj.getPersons())
+        if ( persons != obj.getPersons() )
             return false;
-        if (cityName != obj.getCityName())
+        if ( !cityName.equals( obj.getCityName()) )
             return false;
         return true;
     }

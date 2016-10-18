@@ -25,7 +25,7 @@ public class BookingComAPI implements API{
         Room [] result;
         int resultIndex = 0;
         for (Room room : rooms) {
-            if(room.getPrice() == price && room.getPersons() == persons && room.getCityName() == city && room.getHotelName() == hotel){
+            if(room.getPrice() == price && room.getPersons() == persons && city.equals(room.getCityName()) && hotel.equals(room.getHotelName()) ){
                 resultBuffer[resultIndex] = room;
                 resultIndex ++;
             }
