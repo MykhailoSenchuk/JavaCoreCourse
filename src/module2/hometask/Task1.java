@@ -1,24 +1,31 @@
 package module2.hometask;
 
+import module6.homework.ArraysUtils;
+
 /**
  * Created by Mykhailo on 8/29/2016.
  */
 public class Task1 {
 
+
     public static void main(String[] args) {
-        int[] values = {2147483646, -20, -5, -4, -5, -4, 0,0,0,0};
-        System.out.println("Sum is " + sum(values));
-        System.out.println("Min is " + min(values));
-        System.out.println("Max is " + max(values));
-        System.out.println( ( maxPositive(values) != 0 ) ? ( "Max positive is " + maxPositive(values) ) : "There are no positive numbers");
-        System.out.println("Multiplication is " + multiplication(values) );
+        int[] values = {-11, -20, -5, -4, -5, -4, 0,0,0,10};
+        System.out.println("Sum is " + ArraysUtils.sum(values));
+        System.out.println("Min is " + ArraysUtils.min(values));
+        System.out.println("Max is " + ArraysUtils.max(values));
+        System.out.println( ( ArraysUtils.maxPositive(values) != 0 ) ? ( "Max positive is " + ArraysUtils.maxPositive(values) ) : "There are no positive numbers");
+        System.out.println("Multiplication is " + ArraysUtils.multiplication(values) );
         if(values[values.length - 1] != 0)
-            System.out.println("modulus of first and last element is " + modulus(values) );
+            System.out.println("modulus of first and last element is " + ArraysUtils.modulus(values) );
         //else
             //System.out.println("modulus:Division by zero");
-        System.out.println("Second largest is " + secondLargest(values) );
+        System.out.println("Second largest is " + ArraysUtils.secondLargest(values) );
+        System.out.println("Reverse array is " );
+        ArraysUtils.printArray( ArraysUtils.reverse(values) );
+        System.out.println("Even numbers are ");
+        ArraysUtils.printArray( ArraysUtils.findEvenElements(values) );
     }
-
+/*
     public static int sum(int array[]) {
         int sum = 0;
         for(int item : array) {
@@ -176,5 +183,5 @@ public class Task1 {
             }
         }
         return array[i];
-    }
+    }*/
 }
