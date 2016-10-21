@@ -9,7 +9,7 @@ public class Task1 {
 
 
     public static void main(String[] args) {
-        int[] values = {-11, -20, -5, -4, -5, -4, 0,0,0,10};
+        int[] values = {1,2,3,4,5,6,7,8,9,10};
         System.out.println("Sum is " + ArraysUtils.sum(values));
         System.out.println("Min is " + ArraysUtils.min(values));
         System.out.println("Max is " + ArraysUtils.max(values));

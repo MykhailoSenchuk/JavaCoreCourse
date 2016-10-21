@@ -22,6 +22,7 @@ package module6.homework;
 
 
  */
+
 public final class ArraysUtils {
 
     public final static int sum(int array[]) {
@@ -76,32 +77,40 @@ public final class ArraysUtils {
         }
     }
     //descending sort
-    public final static void sort( int array[] ) {
+    public final static int[] sort( int array[] ) {
+
+        int[] result = new int[array.length];
+        //copy the array to leave it unchanged
+        for (int i =0; i < array.length; i++){
+            result[i] = array[i];
+        }
+
         boolean swap = true;
         int buffer = 0;
         while (swap) {
             swap = false;
-            for(int i = 0;  i < array.length - 1;  i++) {
-                if ( array[i] < array[i+1] ) {
-                    buffer = array[i];
-                    array[i] = array[i+1];
-                    array[i+1] = buffer;
+            for(int i = 0;  i < result.length - 1;  i++) {
+                if ( result[i] < result[i+1] ) {
+                    buffer = result[i];
+                    result[i] = result[i+1];
+                    result[i+1] = buffer;
                     swap = true;
                 }
             }
         }
+        return result;
     }
     public final static int secondLargest(int array[]){
-        sort(array);//receive descending array
+        int[] descending = sort(array);//receive descending array
         int i;
         //go through descending array starting from second element(skipping max element)
         // to find second largest number
-        for(i = 1;  i < array.length;  i++) {
-            if(array[i] != array [i-1]){
+        for(i = 1;  i < descending.length;  i++) {
+            if(descending[i] != descending [i-1]){
                 break;
             }
         }
-        return array[i];
+        return descending[i];
     }
     public final static int[] reverse(int[] array){
         int[] result = new int[array.length];
