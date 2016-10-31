@@ -109,8 +109,8 @@ public class Main {
         Comparator<Order> ascendingPriceCity = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
-                if( o1.user.getCity().equals(o2.user.getCity() ) ) return o1.getPrice() - o2.getPrice();
-                return o1.user.getCity().compareTo(o2.user.getCity());
+                if( o1.getPrice() == o2.getPrice() )  return o1.user.getCity().compareTo(o2.user.getCity());
+                return o1.getPrice() - o2.getPrice();
             }
         };
         list.sort(ascendingPriceCity);
