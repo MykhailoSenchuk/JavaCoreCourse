@@ -17,7 +17,7 @@ public class MainSet {
         Iterator<Order> i = set.iterator();
         while(i.hasNext()){
             Order order = i.next();
-            if(order.user.getLastName().equals(lastName))
+            if(order.getUser().getLastName().equals(lastName))
                 return true;
         }
         return false;

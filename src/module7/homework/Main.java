@@ -109,7 +109,7 @@ public class Main {
         Comparator<Order> ascendingPriceCity = new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
-                if( o1.getPrice() == o2.getPrice() )  return o1.user.getCity().compareTo(o2.user.getCity());
+                if( o1.getPrice() == o2.getPrice() )  return o1.getUser().getCity().compareTo(o2.getUser().getCity());
                 return o1.getPrice() - o2.getPrice();
             }
         };
@@ -127,7 +127,7 @@ public class Main {
                 if(result == 0 )
                     result = o1.getShopIdentificator().compareTo(o2.getShopIdentificator() );
                 if(result == 0)
-                    result = o1.user.getCity().compareTo(o2.user.getCity());
+                    result = o1.getUser().getCity().compareTo(o2.getUser().getCity());
                 return result;
             }
         };
@@ -175,7 +175,7 @@ public class Main {
         i = list.iterator();
         while(i.hasNext()){
             Order order = i.next();
-            uniqueCities.add(order.user.getCity());
+            uniqueCities.add(order.getUser().getCity());
         }
         Iterator<String> i1 = uniqueCities.iterator();
         List<List<Order>> listsByCity= new ArrayList<>();
@@ -186,7 +186,7 @@ public class Main {
             i = list.iterator();
             while(i.hasNext()){
                 Order order = i.next();
-                if(order.user.getCity().equals(cityName))
+                if(order.getUser().getCity().equals(cityName))
                     listsByCity.get(counter).add(order);
             }
             counter++;

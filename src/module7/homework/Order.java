@@ -16,7 +16,7 @@ public class Order implements Comparable<Order>{
     private Currency currency;
     private String itemName;
     private String shopIdentificator;
-    User user;
+    private User user;
 
     @Override
     public int compareTo(Order o) {
