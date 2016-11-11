@@ -7,7 +7,7 @@ package module10;
  * Now wrap the code in a try-catch clause to catch the exception.
  */
 public class Task3 {
-    class NullClass{
+    private class NullClass{
         void someMethod(){}
     }
     public static void main(String[] args) {

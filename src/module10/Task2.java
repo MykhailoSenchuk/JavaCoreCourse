@@ -7,9 +7,9 @@ package module10;
  * Write a method that prints out the stored String. Create a try-catch clause to exercise your new exception.
  */
 public class Task2 {
-    class MyOwnException extends Exception{
+    private class MyOwnException extends Exception{
         private String message;
-        public void printExceptionMessage(){
+        void printExceptionMessage(){
             System.out.println(message);
         }
 
@@ -18,7 +18,7 @@ public class Task2 {
         }
     }
 
-    public void test(String m) {
+    private void test(String m) {
         try{
             throw new MyOwnException(m);
         }

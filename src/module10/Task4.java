@@ -8,10 +8,10 @@ package module10;
  * Test your code in main( ).
  */
 public class Task4 {
-    class ExceptionOne extends Exception{}
-    class ExceptionTwo extends Exception{}
+    private class ExceptionOne extends Exception{}
+    private class ExceptionTwo extends Exception{}
 
-    void f() throws ExceptionTwo{
+    private void f() throws ExceptionTwo{
         try{
             g();
         }
@@ -19,7 +19,7 @@ public class Task4 {
             throw new ExceptionTwo();
         }
     }
-    void g()throws ExceptionOne {
+    private void g()throws ExceptionOne {
         throw new ExceptionOne();
     }
 
