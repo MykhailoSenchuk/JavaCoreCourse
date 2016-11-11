@@ -9,22 +9,21 @@ package module10;
  */
 public class Task5 {
 
-    class ExceptionOne extends Exception{}
-    class ExceptionTwo extends Exception{}
-    class ExceptionThree extends Exception{}
+    private class ExceptionOne extends Exception{}
+    private class ExceptionTwo extends Exception{}
+    private class ExceptionThree extends Exception{}
 
-    void throwExceptions()throws ExceptionOne,ExceptionTwo, ExceptionThree{
-        for(int i = 0; i < 3; i++){
-            if(i == 0) throw new ExceptionOne();
-            if(i == 1) throw new ExceptionTwo();
-            if(i == 2) throw new ExceptionThree();
-        }
+    private void throwExceptions(int i)throws ExceptionOne,ExceptionTwo, ExceptionThree{
+        if(i == 1) throw new ExceptionOne();
+        if(i == 2) throw new ExceptionTwo();
+        if(i == 3) throw new ExceptionThree();
+
     }
 
     public static void main(String[] args) {
         Task5 pleaseWork = new Task5();
         try{
-            pleaseWork.throwExceptions();
+            pleaseWork.throwExceptions(1);
         }
         catch(Exception e){
             System.out.println("works as intended?");
