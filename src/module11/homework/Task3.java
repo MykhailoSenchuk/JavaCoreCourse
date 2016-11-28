@@ -13,7 +13,9 @@ import java.util.Map;
  */
 public class Task3 {
     public static void main(String[] args) {
-        String path = "src/module11/homework/Task";
+        String inPath = "src/module11/homework/Task";
+        String outPath = "src/module11/homework/output.txt";
+        WorkFile workFile = new WorkFile(inPath,outPath);
 
         // replace parameters
         Map<String, String> replaceTo = new HashMap<String, String>(){
@@ -23,7 +25,7 @@ public class Task3 {
         };
 
         try{
-            Utils.fileContentMerger(replaceTo, path);
+            workFile.fileContentMerger(replaceTo);
         }catch (IOException e){
             e.printStackTrace();
         }

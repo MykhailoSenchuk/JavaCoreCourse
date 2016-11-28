@@ -1,6 +1,5 @@
 package module11.homework;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +13,10 @@ import java.util.Map;
  */
 public class Task2 {
     public static void main(String[] args) {
-        String path = "src/module11/homework/Task";
+
+        String inPath = "src/module11/homework/Task";
+        String outPath = "src/module11/homework/output.txt";
+        WorkFile workFile = new WorkFile(inPath,outPath);
 
         // replace parameters
         Map<String, String> replaceTo = new HashMap<String, String>(){
@@ -24,7 +26,7 @@ public class Task2 {
         };
 
         try{
-            Utils.fileContentReplacer(replaceTo, path);
+            workFile.fileContentReplacer(replaceTo);
         }catch (IOException e){
             e.printStackTrace();
         }

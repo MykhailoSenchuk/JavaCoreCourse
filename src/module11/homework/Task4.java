@@ -15,9 +15,10 @@ public class Task4 {
     public static void main(String[] args) {
 
         String path = "src/module11/homework/Task";
+        WorkFile workFile = new WorkFile(path);
         String searchWord = "file";
         try{
-            System.out.println(Utils.countWord(searchWord, path));
+            System.out.println(workFile.countWord(searchWord));
         }catch (IOException e){
             e.printStackTrace();
         }

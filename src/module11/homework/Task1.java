@@ -1,10 +1,6 @@
 package module11.homework;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +16,8 @@ import static com.sun.javafx.fxml.expression.Expression.add;
  */
 public class Task1 {
     public static void main(String[] args) {
-        String inPath = "src/module11/homework/Task";
+        String path = "src/module11/homework/Task";
+        WorkFile workFile = new WorkFile(path);
 
         Map<String, String> replaceTo = new HashMap<String, String>() {
             {
@@ -29,7 +26,7 @@ public class Task1 {
         };
 
         try {
-            System.out.println(Utils.replacer(replaceTo, inPath));
+            System.out.println(workFile.replacer(replaceTo));
         } catch (IOException e) {
             e.printStackTrace();
         }
