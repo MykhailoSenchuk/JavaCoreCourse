@@ -13,14 +13,14 @@ import java.util.Map;
  */
 public class Task3 {
     public static void main(String[] args) {
-        String inPath = "src/module11/homework/Task";
+        String inPath = "src/module11/homework/input.txt";
         String outPath = "src/module11/homework/output.txt";
         WorkFile workFile = new WorkFile(inPath,outPath);
 
         // replace parameters
         Map<String, String> replaceTo = new HashMap<String, String>(){
             {
-                put("replace","FUCK UP");
+                put("replace","AAAAAAAAAAAA");
             }
         };
 

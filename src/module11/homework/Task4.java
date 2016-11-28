@@ -14,11 +14,11 @@ import java.io.IOException;
 public class Task4 {
     public static void main(String[] args) {
 
-        String path = "src/module11/homework/Task";
+        String path = "src/module11/homework/input.txt";
         WorkFile workFile = new WorkFile(path);
         String searchWord = "file";
         try{
-            System.out.println(workFile.countWord(searchWord));
+            System.out.println("Word " + '\''+searchWord+'\'' + " occure " + workFile.countWord(searchWord) + " times in the file");
         }catch (IOException e){
             e.printStackTrace();
         }

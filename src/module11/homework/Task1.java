@@ -16,12 +16,12 @@ import static com.sun.javafx.fxml.expression.Expression.add;
  */
 public class Task1 {
     public static void main(String[] args) {
-        String path = "src/module11/homework/Task";
+        String path = "src/module11/homework/input.txt";
         WorkFile workFile = new WorkFile(path);
 
         Map<String, String> replaceTo = new HashMap<String, String>() {
             {
-                put("file", "bitch");
+                put("file", "AAAAAAAAA");
             }
         };
 

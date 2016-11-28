@@ -14,19 +14,19 @@ import java.util.Map;
 public class Task2 {
     public static void main(String[] args) {
 
-        String inPath = "src/module11/homework/Task";
-        String outPath = "src/module11/homework/output.txt";
+        String inPath = "src/module11/homework/input.txt";//input file
+        String outPath = "src/module11/homework/output.txt";//output file
         WorkFile workFile = new WorkFile(inPath,outPath);
 
         // replace parameters
         Map<String, String> replaceTo = new HashMap<String, String>(){
             {
-                put("replace","FUCK UP");
+                put("replace","AAAAAAAAA");
             }
         };
 
         try{
-            workFile.fileContentReplacer(replaceTo);
+            workFile.fileContentReplacer(replaceTo);//reult can be found in output file
         }catch (IOException e){
             e.printStackTrace();
         }

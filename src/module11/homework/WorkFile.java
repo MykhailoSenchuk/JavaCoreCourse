@@ -1,12 +1,13 @@
 package module11.homework;
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * Created by Mykhailo on 11/14/2016.
@@ -15,15 +16,6 @@ public class WorkFile {
 
     private File inputFile;
     private File outputFile;
-
-    /**
-     * Assign one file for input and output
-     * @param file
-     */
-    public WorkFile(File file){
-        inputFile = file;
-        outputFile = file;
-    }
 
     /**
      * Assign different output and input files
@@ -36,16 +28,19 @@ public class WorkFile {
     }
 
     /**
+     * Assign one file for input and output
+     * @param file
+     */
+    public WorkFile(File file){
+       this(file, file);
+    }
+
+    /**
      * Assign one file for input and output based on path
      * @param path
      */
     public WorkFile(String path){
-        inputFile = Paths
-                .get(path)
-                .toFile();
-        outputFile = Paths
-                .get(path)
-                .toFile();
+        this( new File(path), new File(path));
     }
 
     /**
@@ -54,12 +49,7 @@ public class WorkFile {
      * @param outPath output file path
      */
     public WorkFile(String inPath, String outPath){
-        inputFile = Paths
-                .get(inPath)
-                .toFile();
-        outputFile = Paths
-                .get(outPath)
-                .toFile();
+        this( new File(inPath), new File(outPath));
     }
 
 
@@ -68,38 +58,25 @@ public class WorkFile {
      * read inputFile and save to String array
      * @return String with text from file
      */
-    public String readFile() throws IOException {
-        String buffer = "";
-        try(FileInputStream in = new FileInputStream(inputFile)){
-            int b;
-            while(( b = in.read() ) != -1) {
-                buffer = buffer + (char) b;
-            }
-        }
 
+    public String readFile() throws IOException {
+        String buffer = new String(Files.readAllBytes( inputFile.toPath() ), StandardCharsets.UTF_8 );
         return buffer;
     }
-
 
     /**
      * write string to the outputFile
      */
     public void writeFile(String text) throws IOException{
-
-        try(PrintWriter out = new PrintWriter ( outputFile )){
-            out.print(text);
-        }
+        Files.write( outputFile.toPath() , text.getBytes());
     }
-
 
     /**
      * add string to the outputFile
      */
     public void addToFile(String text)throws IOException{
 
-        try(PrintWriter out = new PrintWriter ( new FileOutputStream(outputFile, true) )){
-            out.append(text);
-        }
+        Files.write( outputFile.toPath() , text.getBytes(), StandardOpenOption.APPEND );
     }
 
     /**
@@ -108,22 +85,12 @@ public class WorkFile {
      * @throws IOException
      */
     public String replacer(Map<String, String> map) throws IOException{
-        String result = null;
 
-        // receive distinct words from inputFile
-        String[] words = readFile()
-                .split(" ");
-
-        // replace words
-        for (int i = 0; i < words.length; i++) {
-            String replaceFor = map.get(words[i]);
-            if(replaceFor != null){
-                words[i] = replaceFor;
-            }
+        String result = readFile();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            result = result.replaceAll("\\b"+entry.getKey()+"\\b",entry.getValue());
         }
-
-        //join words and return
-        return result.join(" ",words);
+        return result;
     }
 
     /**
@@ -150,29 +117,22 @@ public class WorkFile {
         return outputFile;
     }
 
-
     /**
-     * Counts quantity of searched word in inputFile
+     * Counts quantity(case insensetive) of searched word in inputFile
      * @param searchWord
      * @return Print number of times searchWord repeated in the file, 0 if wasn't found
      * @throws IOException
      */
     public int countWord (String searchWord) throws IOException {
 
+        Pattern pattern = Pattern.compile("(?i)\\b"+searchWord+"\\b");
+        Matcher matcher = pattern.matcher(readFile());
         int count = 0;
 
-        // receive distinct words from inputFile
-        String[] words = readFile()
-                .split(" ");
-
-        //search for the word
-        for (String word : words) {
-            String pureWord = word.replaceAll("[^A-Za-z]+", "");
-            if (pureWord == null)
-                continue;
-            if (pureWord.equalsIgnoreCase(searchWord))
-                count++;
+        while (matcher.find()) {
+            count++;
         }
+
         return count;
     }
 
